@@ -1,0 +1,41 @@
+Go
+Brown #1,Mediterranean Avenue,Property,60,50,2,10,30,90,160,250,30
+Community Chest #1,Community Chest,Community_Chest
+Brown #2,Baltic Avenue,Property,60,50,4,20,60,180,320,450,30
+Tax #1,Income Tax,Tax
+Railroad #1,Reading Railroad,Railroad
+Light Blue #1,Oriental Avenue,Property,100,50,6,30,90,270,400,550,50
+Chance #1,Chance,Chance
+Light Blue #2,Vermont Avenue,Property,100,50,6,30,90,270,400,550,50
+Light Blue #3,Connecticut Avenue,Property,120,50,8,40,100,300,450,600,60
+Jail
+Visiting Jail
+Pink #1,St. Charles Place,Property,140,100,10,50,150,450,625,750,70
+Utility #1,Electric Company,Utility
+Pink #2,States Avenue,Property,140,100,10,50,150,450,625,750,70
+Pink #3,Virginia Avenue,Property,160,100,12,60,180,500,700,900,80
+Railroad #2,Pennsylvania Railroad,Railroad
+Orange #1,St. James Place,Property,180,100,14,70,200,550,750,950,90
+Community Chest #2,Community Chest,Community_Chest
+Orange #2,Tennessee Avenue,Property,180,100,14,70,200,550,750,950,90
+Orange #3,New York Avenue,Property,200,100,16,80,220,600,800,1000,100
+Free Parking
+Red #1,Kentucky Avenue,Property,220,150,18,90,250,700,875,1050,110
+Chance #2,Chance,Chance
+Red #2,Indiana Avenue,Property,220,150,18,90,250,700,875,1050,110
+Red #3,Illinois Avenue,Property,240,150,20,100,300,750,925,1100,120
+Railroad #3,B&O Railroad,Railroad
+Yellow #1,Atlantic Avenue,Property,260,150,22,110,330,800,975,1150,130
+Yellow #2,Ventnor Avenue,Property,260,150,22,110,330,800,975,1150,130
+Utility #2,Water Works,Utility
+Yellow #3,Marvin Gardens,Property,280,150,24,120,360,850,1025,1200,140
+Go To Jail
+Green #1,Pacific Avenue,Property,300,200,26,130,390,900,1100,1275,150
+Green #2,North Carolina Avenue,Property,300,200,26,130,390,900,1100,1275,150
+Community Chest #3,Community Chest,Community_Chest
+Green #3,Pennsylvania Avenue,Property,320,200,28,150,450,1000,1200,1400,160
+Railroad #4,Short Line,Railroad
+Chance #3,Chance,Chance
+Dark Blue #1,Park Place,Property,350,200,35,175,500,1100,1300,1500,175
+Tax #2,Luxury Tax,Tax
+Dark Blue #2,Boardwalk,Property,400,200,50,200,600,1400,1700,2000,200
