@@ -1,8 +1,6 @@
 import os
 from datetime import datetime
 
-from monopoly.board.board import Board
-from monopoly.cards.deck import Deck
 from game_statistics.game_statistics import GameStatistics
 
 
