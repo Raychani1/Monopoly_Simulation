@@ -1,0 +1,16 @@
+Advance to Go (Collect $200).;Travel;Go
+Bank error in your favor. Collect $200.;Money;Bank;Player;200
+Doctor’s fee. Pay $50.;Money;Player;Bank;50
+From sale of stock you get $50.;Money;Bank;Player;50
+Get Out of Jail Free.;Get Out of Jail
+Go to Jail. Go directly to jail, do not pass Go, do not collect $200.;Travel;Jail
+Holiday fund matures. Receive $100.;Money;Bank;Player;100
+Income tax refund. Collect $20.;Money;Bank;Player;20
+It is your birthday. Collect $10 from every player.;Money;Player;Player;10
+Life insurance matures. Collect $100.;Money;Bank;Player;100
+Pay hospital fees of $100.;Money;Player;Bank;100
+Pay school fees of $50.;Money;Player;Bank;50
+Receive $25 consultancy fee.;Money;Bank;Player;25
+You are assessed for street repair. $40 per house. $115 per hotel.;Money;Player;Bank;40;115
+You have won second prize in a beauty contest. Collect $10.;Money;Bank;Player;10
+You inherit $100.;Money;Bank;Player;150
