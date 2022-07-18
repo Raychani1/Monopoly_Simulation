@@ -36,6 +36,15 @@ class Deck:
         """
         return self.__cards
 
+    @property
+    def discard_pile(self) -> List[Card]:
+        """Return Cards in Discard Pile.
+
+        Returns:
+            List[Card]: Cards in Discard Pile.
+        """
+        return self.__discard_pile
+
     @staticmethod
     def __read_input_data(file: str) -> List[str]:
         """Load Card Data from Input File.
@@ -95,11 +104,22 @@ class Deck:
             Card: Drawn Card.
         """
         drawn_card = self.__cards.pop(0)
-        self.__discard_pile.append(drawn_card)
+
+        if drawn_card.card_type != CardActionType.GET_OUT_OF_JAIL:
+            self.discard_card(drawn_card)
 
         # When there are no Cards to draw
         if len(self.__cards) == 0:
             self.__cards.extend(self.__discard_pile)
             shuffle(self.__cards)
+            self.__discard_pile = []
 
         return drawn_card
+
+    def discard_card(self, card: Card) -> None:
+        """Discard Card to Discard Pile.
+
+        Args:
+            card (Card): Card to Discard.
+        """
+        self.__discard_pile.append(card)
