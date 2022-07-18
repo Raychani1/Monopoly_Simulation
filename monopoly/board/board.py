@@ -1,4 +1,5 @@
-from typing import List
+from pprint import pprint
+from typing import Dict, List
 
 from monopoly.board.tiles.property import Property
 from monopoly.board.tiles.tile import Tile
@@ -11,9 +12,10 @@ class Board:
 
     Attributes:
         tiles (List[Tile]): Monopoly Board Tiles.
+        map (Dict[str, int]): Monopoly Board Map.
+        railroads (List[int]): Railroad Locations.
+        utilities (List[int]): Utility Locations.
     """
-
-    __tiles: List[Tile] = []
 
     def __init__(self, file: str) -> None:
         """Initialize the Board Class.
@@ -21,6 +23,14 @@ class Board:
         Args:
             file (str): Board Data File.
         """
+        # Basic Board Attributes
+        self.__tiles: List[Tile] = []
+        self.__map: Dict[str, int] = {}
+
+        # Special Tile Locations
+        self.__railroads: List[int] = []
+        self.__utilities: List[int] = []
+
         self.__initialize_board(file)
 
     @property
@@ -31,6 +41,33 @@ class Board:
             List[Tile]: Board Tiles.
         """
         return self.__tiles
+
+    @property
+    def map(self) -> Dict[str, int]:
+        """Return Board Map.
+
+        Returns:
+            Dict[str, int]: Board Map.
+        """
+        return self.__map
+
+    @property
+    def railroads(self) -> List[int]:
+        """Return Railroad Locations.
+
+        Returns:
+            List[int]: Railroad Locations.
+        """
+        return self.__railroads
+
+    @property
+    def utilities(self) -> List[int]:
+        """Return Utility Locations.
+
+        Returns:
+            List[int]: Utility Locations.
+        """
+        return self.__utilities
 
     @staticmethod
     def __read_input_data(file: str) -> List[str]:
@@ -98,6 +135,31 @@ class Board:
                 tile[11]
             )
 
+    def __update_mapping(self, index: int, tile: List[str]) -> None:
+        """Update Board Tile Mapping.
+
+        Args:
+            index (int): Tile index.
+            tile (List[str]): Tile Data.
+        """
+        match len(tile):
+
+            # 'GO', 'Jail', 'Visiting Jail', 'Free Parking', 'Go To Jail'
+            case 1:
+                self.__map[tile[0]] = index
+
+            # Every other category
+            case _:
+                if tile[1] in ['Chance', 'Community Chest']:
+                    self.__map[tile[0]] = index
+                else:
+                    self.__map[tile[1]] = index
+
+                    if tile[2] == 'Railroad':
+                        self.__railroads.append(index)
+                    elif tile[2] == 'Utility':
+                        self.__utilities.append(index)
+
     def __initialize_board(self, file: str) -> None:
         """Initialize Monopoly Board Tiles.
 
@@ -105,5 +167,7 @@ class Board:
             file (str): Input Data File.
         """
         tiles = self.__read_input_data(file)
-        for tile in tiles:
+
+        for index, tile in enumerate(tiles):
+            self.__update_mapping(index, tile)
             self.__tiles.append(self.__create_tile(tile))

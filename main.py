@@ -5,22 +5,35 @@ from game_statistics.game_statistics import GameStatistics
 
 
 if __name__ == '__main__':
+    rounds: int = 1000
     timestamp: str = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
     game_statistics = GameStatistics(
-        input_data=os.path.join(
+        board_data=os.path.join(
             os.getcwd(),
             'monopoly',
             'data',
             'board_data.txt'
         ),
-        file=os.path.join(
+        chances_data=os.path.join(
+            os.getcwd(),
+            'monopoly',
+            'data',
+            'chances_data.txt'
+        ),
+        community_chests_data=os.path.join(
+            os.getcwd(),
+            'monopoly',
+            'data',
+            'community_chest_data.txt'
+        ),
+        output_file=os.path.join(
             os.getcwd(),
             'output',
-            f'output_{timestamp}.txt',
+            f'output_{rounds}_rounds_{timestamp}.txt',
         ),
         timestamp=timestamp,
-        rounds=2000
+        rounds=rounds
     )
 
     game_statistics()
