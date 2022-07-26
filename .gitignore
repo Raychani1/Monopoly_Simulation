@@ -6,7 +6,8 @@
 
 # virtualenv
 .venv
-venv/
+venv-linux/
+venv-win/
 ENV/
 
 # Installer logs
