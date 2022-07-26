@@ -6,25 +6,25 @@ This Project simulates the movement of a Player in the game of Monopoly. Once th
 
 ### **Features**
 
-* #### **Logging** - Each movement on the board is displayed as a log message in the terminal which represents the current tile the Player is on, the dice roll and the number of times the Player have crossed the 'Go' Tile. This way we can see the progress. For example:
+* **Logging** - Each movement on the board is displayed as a log message in the terminal which represents the current tile the Player is on, the dice roll and the number of times the Player have crossed the 'Go' Tile. This way we can see the progress. For example:
 ```
 Current tile: ['Green #2'] - North Carolina Avenue, Rolled: 7, Crossed GO: 98x
 ```
 
 
-* #### **Saved Text Output** - Tile visit statistics data are sorted and save to Output files.
+* **Saved Text Output** - Tile visit statistics data are sorted and save to Output files.
 
-* #### **Dice Roll Distribution Plots** - Distribution of dice roll sums are displayed in interactive count plots.
+* **Dice Roll Distribution Plots** - Distribution of dice roll sums are displayed in interactive count plots.
 [![Roll Distribution Plot][roll-dist-screenshot]](#)
 
-* #### **Top 10 Visited Tiles Plots** - Top 10 most visited tiles are also displayed and saved.
+* **Top 10 Visited Tiles Plots** - Top 10 most visited tiles are also displayed and saved.
 [![Top 10 Visited Tiles Plot][top-10-screenshot]](#)
 
-* #### **Grouped Visit Line Charts** - We can look into tile group based visits in interactive line chart.
+* **Grouped Visit Line Charts** - We can look into tile group based visits in interactive line chart.
 [![Grouped Visit Line Chart][line-chart-screenshot]](#)
 [![Grouped Visit Line Chart Gif][line-chart-gif]](#)
 
-* #### **Board Heatmaps** - Based on the collected data a heatmap is also generated.
+* **Board Heatmaps** - Based on the collected data a heatmap is also generated.
 [![Heatmap Screenshot][heatmap-screenshot]](#)
 
 ### **Built With**
@@ -41,7 +41,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### **Prerequisites**
 
-* #### **Python 3.10.x** - It is either installed on your Linux distribution or on other Operating Systems you can get it from the [Official Website](https://www.python.org/downloads/release/python-3100/), [Microsoft Store](https://apps.microsoft.com/store/detail/python-310/9PJPW5LDXLZ5?hl=en-us&gl=US) or through Windows Subsystem for Linux (WSL) using this [article](https://medium.com/@rhdzmota/python-development-on-the-windows-subsystem-for-linux-wsl-17a0fa1839d).
+* **Python 3.10.x** - It is either installed on your Linux distribution or on other Operating Systems you can get it from the [Official Website](https://www.python.org/downloads/release/python-3100/), [Microsoft Store](https://apps.microsoft.com/store/detail/python-310/9PJPW5LDXLZ5?hl=en-us&gl=US) or through Windows Subsystem for Linux (WSL) using this [article](https://medium.com/@rhdzmota/python-development-on-the-windows-subsystem-for-linux-wsl-17a0fa1839d).
 
 ## **Usage**
 
