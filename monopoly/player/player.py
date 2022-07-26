@@ -142,15 +142,20 @@ class Player:
         self,
         drawn_card: Card,
         board: Board,
-        stats: Dict[str, int]
-    ) -> None:
+        stats: Dict[str, int],
+        round_data: pd.DataFrame
+    ) -> pd.DataFrame:
         """Execute Travel Card Action.
 
         Args:
             board (Board): Monopoly Board.
             deck (Deck): Monopoly Card Deck.
             card_type (str): Card Type.
-            stats (Dict[str, int]): Statistics data.
+            stats (Dict[str, int]): Statistics data.            
+            round_data (pd.DataFrame): Round Visit Data.
+
+        Returns:
+            pd.DataFrame: Updated Round Visit Data.
         """
         destination = drawn_card.destination
 
@@ -174,19 +179,29 @@ class Player:
 
             if self.__current_position > new_position \
                     and destination != 'Jail':
+                round_data = pd.concat(
+                    [
+                        round_data,
+                        pd.Series(stats).rename(f'Round {self.__crossed_go_tile}')
+                    ],
+                    axis=1
+                )
                 self.__crossed_go_tile += 1
 
             self.__current_position = new_position
 
         stats[board.tiles[self.__current_position].label] += 1
 
+        return round_data
+
     def __execute_card_action(
         self,
         board: Board,
         deck: Deck,
         card_type: str,
-        stats: Dict[str, int]
-    ) -> None:
+        stats: Dict[str, int],
+        round_data: pd.DataFrame
+    ) -> pd.DataFrame:
         """Execute Card Action.
 
         Args:
@@ -194,6 +209,10 @@ class Player:
             deck (Deck): Monopoly Card Deck.
             card_type (str): Card Type.
             stats (Dict[str, int]): Statistics data.
+            round_data (pd.DataFrame): Round Visit Data.
+
+        Returns:
+            pd.DataFrame: Updated Round Visit Data.
         """
         drawn_card: Card = deck.draw_card()
 
@@ -205,13 +224,16 @@ class Player:
         )
 
         if drawn_card.card_type == CardActionType.TRAVEL:
-            self.__execute_travel_card_action(
+            round_data = self.__execute_travel_card_action(
                 drawn_card=drawn_card,
                 board=board,
-                stats=stats
+                stats=stats,
+                round_data=round_data
             )
         elif drawn_card.card_type == CardActionType.GET_OUT_OF_JAIL:
             self.__add_card_to_inventory(card=drawn_card, deck=deck)
+
+        return round_data
 
     def __display_move(self, increment: int, board: Board) -> None:
         """Display basic stats of movement.
@@ -282,16 +304,22 @@ class Player:
 
         # Draw Card
         if tile_type in [TileType.CHANCE, TileType.COMMUNITY_CHEST]:
-            (
-                self.__execute_card_action(board, chances, 'Chance', stats)
-                if tile_type == TileType.CHANCE
-                else self.__execute_card_action(
-                    board,
-                    community_chests,
-                    'Community Chest',
-                    stats
+            if tile_type == TileType.CHANCE:
+                round_data = self.__execute_card_action(
+                    board=board, 
+                    deck=chances, 
+                    card_type='Chance', 
+                    stats=stats,
+                    round_data=round_data
                 )
-            )
+            elif tile_type == TileType.COMMUNITY_CHEST:
+                round_data = self.__execute_card_action(
+                    board=board,
+                    deck=community_chests,
+                    card_type='Community Chest',
+                    stats=stats,
+                    round_data=round_data
+                )
 
         return round_data
 
