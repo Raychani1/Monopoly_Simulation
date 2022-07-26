@@ -1,5 +1,6 @@
 from typing import Dict, List, Tuple
 
+import pandas as pd
 from numpy.random import randint
 from termcolor import colored
 
@@ -232,8 +233,9 @@ class Player:
             board: Board,
             chances: Deck,
             community_chests: Deck,
-            stats: Dict[str, int]
-    ) -> None:
+            stats: Dict[str, int],
+            round_data: pd.DataFrame
+    ) -> pd.DataFrame:
         """Execute Regular round.
 
         Args:
@@ -242,6 +244,10 @@ class Player:
             chances (Deck): Chance Cards Deck.
             community_chests (Deck): Community Chest Cards Deck.
             stats (Dict[str, int]): Statistics data.
+            round_data (pd.DataFrame): Round Visit Data.
+
+        Returns:
+            pd.DataFrame: Updated Round Visit Data.
         """
         board_length = len(board.tiles)
 
@@ -251,6 +257,13 @@ class Player:
 
         # Crossed 'GO' Tile
         if self.__current_position >= board_length:
+            round_data = pd.concat(
+                [
+                    round_data,
+                    pd.Series(stats).rename(f'Round {self.__crossed_go_tile}')
+                ],
+                axis=1
+            )
             self.__crossed_go_tile += 1
             self.__current_position %= board_length
 
@@ -279,6 +292,8 @@ class Player:
                     stats
                 )
             )
+
+        return round_data
 
     def __in_jail_round(
         self,
@@ -321,8 +336,9 @@ class Player:
         board: Board,
         chances: Deck,
         community_chests: Deck,
-        stats: Dict[str, int]
-    ) -> None:
+        stats: Dict[str, int],
+        round_data: pd.DataFrame
+    ) -> pd.DataFrame:
         """Move Player to new position.
 
         Args:
@@ -331,6 +347,10 @@ class Player:
             chances (Deck): Chance Cards Deck.
             community_chests (Deck): Community Chest Cards Deck.
             stats (Dict[str, int]): Statistics data.
+            round_data (pd.DataFrame): Round Visit Data.
+
+        Returns:
+            pd.DataFrame: Updated Round Visit Data.
         """
         # In Jail
         if self.__current_position == 10:
@@ -342,21 +362,25 @@ class Player:
 
         # Not in Jail
         else:
-            self.__regular_round(
+            round_data = self.__regular_round(
                 increment=increment,
                 board=board,
                 chances=chances,
                 community_chests=community_chests,
-                stats=stats
+                stats=stats,
+                round_data=round_data
             )
+
+        return round_data
 
     def execute_round(
         self,
         board: Board,
         chances: Deck,
         community_chests: Deck,
-        stats: Dict[str, int]
-    ) -> None:
+        stats: Dict[str, int],
+        round_data: pd.DataFrame
+    ) -> pd.DataFrame:
         """Execute round of Monopoly.
 
         Args:
@@ -364,8 +388,21 @@ class Player:
             chances (Deck): Chance Cards Deck.
             community_chests (Deck): Community Chest Cards Deck.
             stats (Dict[str, int]): Statistics data.
+            round_data (pd.DataFrame): Round Visit Data.
+
+        Returns:
+            pd.DataFrame: Updated Round Visit Data.
         """
         increment = self.__roll_the_dice()
 
         if increment != 0:
-            self.__move(increment, board, chances, community_chests, stats)
+            round_data = self.__move(
+                increment=increment,
+                board=board,
+                chances=chances,
+                community_chests=community_chests,
+                stats=stats,
+                round_data=round_data
+            )
+
+        return round_data
