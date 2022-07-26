@@ -1,11 +1,28 @@
 import os
+import platform
+import sys
 from datetime import datetime
+
+from termcolor import colored
 
 from game_statistics.game_statistics import GameStatistics
 
 
 if __name__ == '__main__':
-    rounds: int = 1000
+    usage: str = ''
+
+    platform_os: str = platform.system()
+
+    match platform_os:
+        case 'Windows': usage = '.\Monopoly_Simulation.ps1 [Number of Rounds]'
+        case _: usage = './Monopoly_Simulation [Number of Rounds]'
+
+    try:
+        rounds: int = int(sys.argv[1])
+    except ValueError:
+        print(colored(f'Invalid argument! Usage: {usage}', 'red'))
+        quit()
+
     timestamp: str = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
     game_statistics = GameStatistics(
