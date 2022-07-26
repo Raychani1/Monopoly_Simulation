@@ -204,7 +204,7 @@ class GameStatistics:
                 'output',
                 'plots',
                 'barplots',
-                f'monopoly_game_rolls_barplot_{self.__rounds}_rounds_'
+                f'monopoly_top_10_barplot_{self.__rounds}_rounds_'
                 f'{self.__timestamp}.html'
             )
         )
