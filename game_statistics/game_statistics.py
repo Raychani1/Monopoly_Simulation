@@ -70,21 +70,16 @@ class GameStatistics:
 
     def __run(self) -> None:
         """Simulate the Game of Monopoly."""
-        round_number: int = 0
 
         while self.__player.crossed_go_tile < self.__rounds:
 
-            self.__player.execute_round(
+            self.__data = self.__player.execute_round(
                 board=self.__board,
                 chances=self.__chances,
                 community_chests=self.__community_chests,
-                stats=self.__stats
+                stats=self.__stats,
+                round_data=self.__data
             )
-
-            self.__data[f'Round {round_number}'] = pd.Series(self.__stats)
-
-            if self.__player.crossed_go_tile != round_number:
-                round_number += 1
 
     def __load_data_to_numpy_array(self) -> np.ndarray:
         """Load Statistic Data to NumPy Array for Heatmap.
@@ -238,8 +233,7 @@ class GameStatistics:
             yaxis_visible=False,
             yaxis_showticklabels=False,
             title=(
-                'Monopoly Board Heatmap of 1 Player - '
-                f'{self.__rounds} Rounds'
+                f'Monopoly Board Heatmap of 1 Player - {self.__rounds} Rounds'
             )
         )
 
@@ -258,6 +252,9 @@ class GameStatistics:
 
     def __process_round_data(self) -> None:
         """Process accumulated round visit Data."""
+        # Defragmenting DataFrame
+        self.__data = self.__data.copy()
+
         groups = [x.split('#')[0].strip() for x in self.__data.index.values]
 
         self.__data['Group'] = groups
