@@ -1,0 +1,16 @@
+Advance to Boardwalk.;Travel;Boardwalk
+Advance to Go (Collect $200).;Travel;Go
+Advance to Illinois Avenue. If you pass Go, collect $200.;Travel;Illinois Avenue
+Advance to St. Charles Place. If you pass Go, collect $200.;Travel;St. Charles Place
+Advance to the nearest Railroad. If unowned, you may buy it from the Bank. If owned, pay wonder twice the rental to which they are otherwise entitled.;Travel;Railroad
+Advance to the nearest Railroad. If unowned, you may buy it from the Bank. If owned, pay wonder twice the rental to which they are otherwise entitled.;Travel;Railroad
+Advance token to nearest Utility. If unowned, you may buy it from the Bank. If owned, throw dice and pay owner a total ten times amount thrown.;Travel;Utility
+Bank pays you dividend of $50.;Money;Bank;Player;50
+Get Out of Jail Free.;Get Out of Jail
+Go Back 3 Spaces.;Travel;3 Spaces
+Go to Jail. Go directly to Jail, do not pass Go, do not collect $200.;Travel;Jail
+Make general repairs on all your property. For each house pay $25. For each hotel pay $100.;Money;Player;Bank;25;100
+Speeding fine $15.;Money;Player;Bank;15
+Take a trip to Reading Railroad. If you pass Go, collect $200.;Travel;Reading Railroad
+You have been elected Chairman of the Board. Pay each player $50.;Money;Player;Player;50
+Your building loan matures. Collect $150.;Money;Bank;Player;150
