@@ -66,7 +66,7 @@ To get a local copy up and running follow these simple example steps.
 <!-- LICENSE -->
 ## **License**
 
-Distributed under the **MIT License**. See [LICENSE]() for more information.
+Distributed under the **MIT License**. See [LICENSE](https://github.com/Raychani1/Monopoly_Simulation/blob/feature/documentation/LICENSE) for more information.
 
 <!-- ACKNOWLEDGMENTS -->
 ## **Acknowledgments**
