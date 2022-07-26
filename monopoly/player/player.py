@@ -1,10 +1,12 @@
 from typing import Dict, List, Tuple
 
+import numpy as np
 import pandas as pd
 from numpy.random import randint
 from termcolor import colored
 
 from monopoly.board.board import Board
+from monopoly.board.tiles.tile import Tile
 from monopoly.board.tiles.tile_type import TileType
 from monopoly.deck.cards.card import Card
 from monopoly.deck.cards.card_action_types import CardActionType
@@ -78,7 +80,7 @@ class Player:
         Returns:
             int: Sum of rolled numbers.
         """
-        rolled = randint(1, 7, 2)
+        rolled: np.ndarray = randint(1, 7, 2)
 
         if rolled[0] == rolled[1]:
             print(colored(f'Double roll: {(rolled[0], rolled[1])}', 'yellow'))
@@ -157,7 +159,7 @@ class Player:
         Returns:
             pd.DataFrame: Updated Round Visit Data.
         """
-        destination = drawn_card.destination
+        destination: str = drawn_card.destination
 
         if destination == '3 Spaces':
             self.__current_position -= 3
@@ -230,6 +232,7 @@ class Player:
                 stats=stats,
                 round_data=round_data
             )
+
         elif drawn_card.card_type == CardActionType.GET_OUT_OF_JAIL:
             self.__add_card_to_inventory(card=drawn_card, deck=deck)
 
@@ -242,7 +245,7 @@ class Player:
             increment (int): Position increment.
             board (Board): Monopoly Board.
         """
-        tile = board.tiles[self.__current_position]
+        tile: Tile = board.tiles[self.__current_position]
 
         print(
             f'Current tile: {[tile.label]} - {tile.name}, Rolled: {increment},'
@@ -271,7 +274,7 @@ class Player:
         Returns:
             pd.DataFrame: Updated Round Visit Data.
         """
-        board_length = len(board.tiles)
+        board_length: int = len(board.tiles)
 
         # Update stats
         self.__display_move(increment, board)
@@ -421,7 +424,7 @@ class Player:
         Returns:
             pd.DataFrame: Updated Round Visit Data.
         """
-        increment = self.__roll_the_dice()
+        increment: int = self.__roll_the_dice()
 
         if increment != 0:
             round_data = self.__move(

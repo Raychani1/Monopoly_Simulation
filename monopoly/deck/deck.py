@@ -56,7 +56,7 @@ class Deck:
             List[str]: Loaded Data.
         """
         with open(file) as f:
-            content = f.readlines()
+            content: List[str] = f.readlines()
 
         return list(x.strip().split(';') for x in content)
 
@@ -70,7 +70,7 @@ class Deck:
         Returns:
             Card: Created Card.
         """
-        card_data_length = len(card)
+        card_data_length: int = len(card)
 
         if card_data_length == 2:
             return Card(card[0], CardActionType.GET_OUT_OF_JAIL)
@@ -103,7 +103,7 @@ class Deck:
         Returns:
             Card: Drawn Card.
         """
-        drawn_card = self.__cards.pop(0)
+        drawn_card: Card = self.__cards.pop(0)
 
         if drawn_card.card_type != CardActionType.GET_OUT_OF_JAIL:
             self.discard_card(drawn_card)
