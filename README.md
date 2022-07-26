@@ -2,11 +2,11 @@
 
 <!-- ABOUT THE PROJECT -->
 ## **About The Project**
-This Project simulates the movement of a Player in the game of Monopoly. Once the simulation is done statistics are displayed.
+This Project simulates the movement of a Player in the game of Monopoly. Once the simulation is over statistics are displayed.
 
 ### **Features**
 
-* **Logging** - Each movement on the board is displayed as a log message in the terminal which represents the current tile the Player is on, the dice roll and the number of times the Player have crossed the 'Go' Tile. This way we can see the progress. For example:
+* **Logging** - Each movement on the board is displayed as a log message in the terminal, which represents the current tile the Player is on, the dice roll and the number of times the Player have crossed the 'Go' Tile. This way we can see the progress of the Player in the simulation. For example:
 ```
 Current tile: ['Green #2'] - North Carolina Avenue, Rolled: 7, Crossed GO: 98x
 ```
@@ -37,11 +37,11 @@ Current tile: ['Green #2'] - North Carolina Avenue, Rolled: 7, Crossed GO: 98x
 <!-- GETTING STARTED -->
 ## **Getting Started**
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple steps.
 
 ### **Prerequisites**
 
-* **Python 3.10.x** - It is either installed on your Linux distribution or on other Operating Systems you can get it from the [Official Website](https://www.python.org/downloads/release/python-3100/), [Microsoft Store](https://apps.microsoft.com/store/detail/python-310/9PJPW5LDXLZ5?hl=en-us&gl=US) or through Windows Subsystem for Linux (WSL) using this [article](https://medium.com/@rhdzmota/python-development-on-the-windows-subsystem-for-linux-wsl-17a0fa1839d).
+* **Python 3.10.x** - It is either installed on your Linux distribution or on other Operating Systems you can get it from the [Official Website](https://www.python.org/downloads/release/python-3100/), [Microsoft Store](https://apps.microsoft.com/store/detail/python-310/9PJPW5LDXLZ5?hl=en-us&gl=US) or through `Windows Subsystem for Linux (WSL)` using this [article](https://medium.com/@rhdzmota/python-development-on-the-windows-subsystem-for-linux-wsl-17a0fa1839d).
 
 ## **Usage**
 
