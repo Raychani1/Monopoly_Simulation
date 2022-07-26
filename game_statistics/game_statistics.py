@@ -1,5 +1,5 @@
 import os
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 import numpy as np
 import pandas as pd
@@ -9,8 +9,8 @@ import plotly.figure_factory as ff
 from game_statistics.config import (
     group_drop_columns,
     line_chart_labels,
-    top_10_columns,
-    NUMBER_OF_VISITS
+    number_of_visits,
+    top_10_columns
 )
 from monopoly.board.board import Board
 from monopoly.deck.deck import Deck
@@ -62,7 +62,7 @@ class GameStatistics:
 
         # Output Related Attributes
         self.__output_file: str = output_file
-        self.__timestamp = timestamp
+        self.__timestamp: str = timestamp
 
     def __load_tile_names(self) -> None:
         """Load Tile Names to Statistics Dictionary."""
@@ -111,7 +111,7 @@ class GameStatistics:
         """Generate and Save 'Group Visit' line chart."""
         self.__process_round_data()
 
-        fig = px.line(
+        fig: px.Figure= px.line(
             self.__data,
             x=self.__data.index,
             y=self.__data.columns,
@@ -142,7 +142,7 @@ class GameStatistics:
             columns=['Rolls']
         ).sort_values(by='Rolls')
 
-        fig = px.histogram(
+        fig: px.Figure = px.histogram(
             data,
             x='Rolls',
             color='Rolls',
@@ -176,18 +176,18 @@ class GameStatistics:
 
         data.columns = top_10_columns
 
-        data.sort_values(by=NUMBER_OF_VISITS, ascending=False, inplace=True)
+        data.sort_values(by=number_of_visits, ascending=False, inplace=True)
 
         fig = px.histogram(
             data.head(10),
             x='Tile',
-            y=NUMBER_OF_VISITS,
+            y=number_of_visits,
             title=f'Top 10 Tiles Visited by 1 Player - {self.__rounds} Rounds',
-            color=NUMBER_OF_VISITS,
+            color=number_of_visits,
             text_auto=True
         )
 
-        fig.update_layout(bargap=0.2, yaxis_title=NUMBER_OF_VISITS)
+        fig.update_layout(bargap=0.2, yaxis_title=number_of_visits)
 
         fig.update_traces(
             hovertemplate=(
@@ -219,10 +219,10 @@ class GameStatistics:
         data: np.ndarray = self.__load_data_to_numpy_array()
         data = data[::-1]
 
-        annotations = data.copy()
+        annotations: np.ndarray = data.copy()
         annotations = np.where(annotations == 0, '', annotations)
 
-        fig = ff.create_annotated_heatmap(
+        fig: ff.Figure = ff.create_annotated_heatmap(
             data,
             annotation_text=annotations,
         )
@@ -264,7 +264,7 @@ class GameStatistics:
         # Defragmenting DataFrame
         self.__data = self.__data.copy()
 
-        groups = [x.split('#')[0].strip() for x in self.__data.index.values]
+        groups: List[str] = [x.split('#')[0].strip() for x in self.__data.index.values]
 
         self.__data['Group'] = groups
 

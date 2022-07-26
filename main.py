@@ -2,13 +2,19 @@ import os
 import platform
 import sys
 from datetime import datetime
+from typing import Tuple
 
 from termcolor import colored
 
 from game_statistics.game_statistics import GameStatistics
 
 
-if __name__ == '__main__':
+def get_rounds_and_timestamp() -> Tuple[int, str]:
+    """Return number of rounds and current timestamp.
+
+    Returns:
+        Tuple[int, str]: Number of Rounds and Current Timestamp.
+    """
     usage: str = ''
 
     platform_os: str = platform.system()
@@ -24,6 +30,13 @@ if __name__ == '__main__':
         quit()
 
     timestamp: str = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+
+    return rounds, timestamp
+
+
+if __name__ == '__main__':
+
+    rounds, timestamp = get_rounds_and_timestamp()
 
     game_statistics = GameStatistics(
         board_data=os.path.join(

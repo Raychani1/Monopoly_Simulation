@@ -79,7 +79,8 @@ class Board:
             List[str]: Loaded Data.
         """
         with open(file) as f:
-            content = f.readlines()
+            content: List[str] = f.readlines()
+
         return list(x.strip().split(',') for x in content)
 
     @staticmethod
@@ -115,7 +116,7 @@ class Board:
         Returns:
             Tile: Created Tile.
         """
-        tile_data_length = len(tile)
+        tile_data_length: int = len(tile)
 
         if tile_data_length == 1:
             return Tile(tile[0], tile[0], self.__detect_tile_type(tile[0]))
@@ -165,7 +166,7 @@ class Board:
         Args:
             file (str): Input Data File.
         """
-        tiles = self.__read_input_data(file)
+        tiles: List[str] = self.__read_input_data(file)
 
         for index, tile in enumerate(tiles):
             self.__update_mapping(index, tile)

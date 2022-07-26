@@ -1,6 +1,6 @@
 from typing import Dict, List
 
-NUMBER_OF_VISITS: str = 'Number of Visits'
+number_of_visits: str = 'Number of Visits'
 
 group_drop_columns: List[str] = [
     'Go', 'Jail', 'Visiting Jail', 'Free Parking', 'Go To Jail'
@@ -8,8 +8,8 @@ group_drop_columns: List[str] = [
 
 line_chart_labels: Dict[str, str] = {
     'index': 'Round',
-    'value': NUMBER_OF_VISITS,
+    'value': number_of_visits,
     'variable': 'Group'
 }
 
-top_10_columns: List[str] = ['Tile', NUMBER_OF_VISITS]
+top_10_columns: List[str] = ['Tile', number_of_visits]
