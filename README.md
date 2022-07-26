@@ -61,8 +61,6 @@ To get a local copy up and running follow these simple example steps.
    .\Monopoly_Simulation.ps1 [Number of Rounds]
    ```
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 <!-- LICENSE -->
 ## **License**
 
@@ -72,12 +70,13 @@ Distributed under the **MIT License**. See [LICENSE](https://github.com/Raychani
 ## **Acknowledgments**
 
 * [James LePage: Using Math To Crush Your Opponents In Monopoly, And More (Medium Article)](https://medium.com/millionaire-by-25/using-math-to-crush-your-opponents-in-monopoly-and-more-dc53441e932b)
+* [Othneil Drew: Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [roll-dist-screenshot]: https://raw.githubusercontent.com/Raychani1/raychani1.github.io/main/projects/python/monopoly_simulation/readme_images/rolls.png
 [top-10-screenshot]: https://raw.githubusercontent.com/Raychani1/raychani1.github.io/main/projects/python/monopoly_simulation/readme_images/top10.png
 [line-chart-screenshot]: https://raw.githubusercontent.com/Raychani1/raychani1.github.io/main/projects/python/monopoly_simulation/readme_images/line_chart.png
-[line-chart-gif]: https://raw.githubusercontent.com/Raychani1/raychani1.github.io/main/projects/python/monopoly_simulation/readme_images/line_chart.gif
+[line-chart-gif]: https://raw.githubusercontent.com/Raychani1/raychani1.github.io/main/projects/python/monopoly_simulation/readme_images/line_chart_2.gif
 [heatmap-screenshot]: https://raw.githubusercontent.com/Raychani1/raychani1.github.io/main/projects/python/monopoly_simulation/readme_images/heatmap.png
 [Python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
 [Python-url]: https://www.python.org/
